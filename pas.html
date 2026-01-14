@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FELICIDADES</title>
+    <link rel="stylesheet" href="feliz.css">
+    
+</head>
+<body class="pastel">
+    <div class="cortina-negra"></div>
+
+    <div class="contenedor-me"></div>
+    
+    <div class="letrero">
+    <svg viewBox="0 0 500 200">
+        <path id="curve" d="M73.2,148.6c4-6.1,65.5-96.8,178.6-95.6c111.3,1.2,170.8,90.3,175.1,97" fill="transparent" />
+        
+        <text width="500">
+            <textPath xlink:href="#curve" startOffset="50%" text-anchor="middle" class="texto-arco">
+                Feliz Cumpleaños
+            </textPath>
+        </text>
+    </svg>
+    </div>
+<audio id="musica" loop> 
+    <source src="feliz_cum.mp3" >
+</audio>
+<div class="control-volumen">
+    <span>🔈</span>
+    <input type="range" id="slider-volumen" min="0" max="1" step="0.01" value="0.5">
+    <span>🔊</span>
+</div>
+
+   <model-viewer src="P3.glb" 
+    reveal="auto"
+    loading="eager"
+    ar ar-modes="webxr scene-viewer quick-look" 
+    camera-controls 
+    disable-zoom 
+    disable-pan
+    interaction-prompt="none" 
+    shadow-intensity="1" 
+    camera-orbit="0deg 75deg auto"
+    min-camera-orbit="auto 75deg auto"
+    max-camera-orbit="auto 75deg auto" 
+    
+    
+    >
+    <div class="progress-bar hide" slot="progress-bar">
+        <div class="update-bar"></div>
+    </div>
+   
+   <!--  <button class="hotspot flama" slot="hotspot-vela" 
+        data-position="0m 1.88m 0.2m" 
+        data-normal="0m 1m 0m">
+    </button>-->
+   
+</model-viewer>
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/4.0.0/model-viewer.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles-confetti@2.12.0/tsparticles.confetti.bundle.min.js"></script>
+    <script src="feliz.js"></script>
+
+
+
+
+</body>
+</html>

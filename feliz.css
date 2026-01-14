@@ -1,0 +1,288 @@
+
+.principal {
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 90vw;
+    margin: 0;
+    padding:0;
+    background: linear-gradient(
+    180deg,
+    #F6B6C9,
+    #FAD1DD
+    );
+    overflow: hidden;
+    }
+
+.contenedor-re {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+ 
+    
+}
+.contenedor-re img {
+max-width: 70vw;
+position: relative;
+max-height: 60vh;
+width: auto;
+/*height: auto;*/
+display: block;
+animation: latido 1.5s infinite ease-in-out/*, destello 2s infinite alternate*/;
+
+}
+@keyframes latido {
+    0%{
+        transform:scale(1);
+    }
+    50%{
+        transform:scale(1.05);
+    }
+    100%{
+        transform:scale(1);
+    }  
+}
+
+.contenedor-re h1{
+    position: relative;
+    margin: 0;
+    margin-top:15px;
+    font-size:50px;
+    color:#4A0E2E;
+   
+    font-family: "Cherry Bomb One", system-ui;
+    text-align: center;
+    /* 1. Contorno Blanco */
+    -webkit-text-stroke: 5px white; 
+    
+    /* 2. Sombra (drop-shadow es mejor para SVG que text-shadow) */
+    filter: drop-shadow(4px 4px 2px rgba(0, 0, 0, 0.3));
+
+    /* 3. Asegura que el contorno no se coma el relleno de la letra */
+    paint-order: stroke fill;
+    
+}
+.cortina-negra{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: black;
+    z-index: 50;
+    pointer-events: none;
+    animation: desvanecerN 3s ease-out forwards;
+}
+@keyframes desvanecerN {
+    0%{
+        background-color: black;
+        opacity: 1;
+    }
+    30%{
+        background-color: rgb(39, 4, 17);
+        opacity: 1;
+    
+    }
+    100%{
+        background-color: #ec9eb8;
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+ 
+.pastel {
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    overflow: hidden; 
+    background: linear-gradient(
+    180deg,
+    #F6B6C9,
+    #FAD1DD
+    );
+}
+
+
+.letrero {
+    position: absolute;
+    top: 8%; /* Ajusta esto para subir o bajar el letrero */
+    width: 80vw;
+    
+    z-index: 10; /* Para que esté por delante del pastel */
+    pointer-events: none; /* Para que no estorbe al girar el pastel */
+}
+/* 2. MODO VERTICAL (Celulares parados) */
+@media (orientation: portrait) {
+    .letrero {
+        top: 28%; /* Más abajo en vertical para que no se pegue al borde */
+    }
+    .texto-arco {
+        font-size: 40px; /* Letra un poco más pequeña para que quepa bien */
+    }
+  
+}
+
+/* 3. MODO HORIZONTAL (Computadoras o celulares acostados) */
+@media (orientation: landscape) {
+    .letrero {
+        top: 8%; /* Más arriba en horizontal para dejar espacio al pastel */
+    }
+    .texto-arco {
+        font-size: 55px; /* Letra más grande aprovechando el ancho */
+    }
+    
+}
+
+.texto-arco {
+    font-family: 'Cherry Bomb One', cursive;
+    font-size: 45px;
+
+    /* Color principal */
+    fill: #4A0E2E;
+
+    /* Contorno blanco */
+    stroke: #FFFFFF;
+    stroke-width: 2px;
+
+    /* Sombra compatible con SVG */
+    filter: rop-shadow(2px 2px 4px rgba(74, 14, 46, 0.35));
+}
+
+model-viewer{
+    margin: 0%;
+    width: 60vw;
+    height: 60vh;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+/* --- ESTILO BASE (Monitor / Pantalla Grande) --- */
+.mensaje-flotante {
+    position: absolute !important;
+    padding: 12px 25px;
+    border-radius: 12px;
+
+    /* Fondo burbuja */
+    background: #FAD6E3;
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+
+    /* Borde suave */
+    border: 1px solid #F3A6BF;
+
+    /* Texto elegante */
+    color: #4A0E2E;
+
+    font-family: 'Cherry Bomb One', cursive;
+    font-size: 1.3rem;
+
+    /* Sombra de texto MUY sutil */
+    text-shadow: 0 1px 2px rgba(74, 14, 46, 0.25);
+
+    white-space: nowrap;
+    z-index: 100;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    animation: aparecerFlotando 4s ease-in-out forwards;
+}
+/* --- AJUSTES PARA CELULAR (Pantalla Vertical) --- */
+@media (max-width: 600px) {
+    .mensaje-flotante {
+        /*padding: 8px 15px; /* Cuadritos más compactos */
+       /* font-size: 0.9rem;  /* Letra más pequeña para que no se corte */
+       /* max-width: 80vw;   /* El cuadro nunca será más ancho que el 80% del cel */
+       /* white-space: normal; /* Si la frase es muy larga, permite que baje un renglón */
+       /* text-align: center;*/
+        position: absolute;
+  top: 50%;
+  left: 50%;
+  pointer-events: none;
+    }
+}
+
+@keyframes aparecerFlotando {
+    0% { opacity: 0; transform: translate(-50%, 20px) scale(0.8); }
+    20% { opacity: 1; transform: translate(-50%, 0) scale(1); }
+    80% { opacity: 1; }
+    100% { opacity: 0; transform: translate(-50%, -40px) scale(1.1); }
+}
+.control-volumen {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #FAD6E3;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    padding: 10px 15px;
+    border-radius: 30px;
+    border: 1px solid #F3A6BF;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    z-index: 1000;
+}
+
+/* Estilo para la barrita */
+#slider-volumen {
+    cursor: pointer;
+    accent-color: #4A0E2E; /* Color rosa del deslizador */
+    width: 100px;
+}
+
+/* En celular lo hacemos un poquito más pequeño */
+@media (max-width: 600px) {
+    .control-volumen {
+        bottom: 10px;
+        right: 10px;
+        padding: 8px 12px;
+    }
+    #slider-volumen { width: 70px; }
+}
+
+
+/*.flama {
+    width: 3vw; /*ANCHO*/
+    /*  height: 13vh;/*LARGO*/
+   /* background: radial-gradient(ellipse at bottom, #fff 0%, #ffeb3b 20%, #ff9800 50%, #f44336 100%);/*
+    border-radius: 50% 50% 20% 20% / 80% 80% 10% 10%;
+    border: none;
+    box-shadow: 0 -1vmin 3vmin #ff9800;
+    position: relative;
+    animation: parpadeo 0.1s infinite alternate;
+    pointer-events: none; /* Para que no puedas darle clic a la flama */
+/*}/*
+
+/* Animación para que la flama se mueva y brille */
+/*@keyframes parpadeo {
+    0% {
+        transform: scale(1) skewX(2deg);
+        opacity: 0.9;
+    }
+    100% {
+        transform: scale(1.1) skewX(-2deg);
+        opacity: 1;
+        box-shadow: 0 0 25px #ffeb3b;
+    }
+}/*
+
+/* Ocultar el botón feo por defecto de model-viewer */
+/*.hotspot {
+    display: block;
+    padding: 0;
+    margin: 0;
+}*/
+
+
