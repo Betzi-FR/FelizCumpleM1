@@ -6,7 +6,7 @@
     justify-content: center;
     align-items: center;
     height: 100vh;
-    width: 90vw;
+    width: 100vw;
     margin: 0;
     padding:0;
     background: linear-gradient(
@@ -15,6 +15,7 @@
     #FAD1DD
     );
     overflow: hidden;
+    
     }
 
 .contenedor-re {
